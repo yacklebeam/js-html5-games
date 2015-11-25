@@ -132,12 +132,12 @@
 
     var Level = {
         init: function() {
-            this.loadLevel(2);
+            this.loadLevel(0);
         },
 
         loadLevel: function(level) {
             switch(level) {
-                case 1:
+                case 0:
                     Hud.goal = 100;
                     for(var i = 0; i < 100; i++) {
                         var newInvader = {
@@ -150,7 +150,7 @@
                         InvaderPool.addNew(newInvader);
                     }
                     break;
-                case 2:
+                case 1:
                     Hud.goal = 1;
                     var BossInvader = {
                         life: 100,
@@ -161,7 +161,7 @@
                     };
                     InvaderPool.addNew(BossInvader);
                     break;
-                case 3:
+                case 2:
                     break;
             }
         }
@@ -418,12 +418,13 @@
                                     Hud.goal--;
                                     Hud.score++;
                                 }
-                               /*if(Hud.goal == 0) {
-                                    Game.gameOver = true;
-                                    Screen.gamewin();
-                                    Game.canvas.addEventListener('click', Game.restartGame, false);
+                               if(Hud.goal == 0) {
+                                    //Game.gameOver = true;
+                                    //Screen.gamewin();
+                                    //Game.canvas.addEventListener('click', Game.restartGame, false);
+                                    Level.loadLevel(1);
                                     return;
-                                }*/
+                                }
                                 break;
                             }
                         }
@@ -592,8 +593,8 @@
 
         draw: function() {
             if(Game.gameOver) return;
-            ctx.clearRect(0, 0, 100, Game.height);
-            ctx.clearRect(Game.width - 100, 0, 100, Game.height);
+            //ctx.clearRect(0, 0, 100, Game.height);
+            //ctx.clearRect(Game.width - 100, 0, 100, Game.height);
             ctx.drawImage(this.hudLeft, 0, 0);
             ctx.drawImage(this.hudRight, Game.width - 100, 0);
 

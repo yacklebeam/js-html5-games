@@ -141,7 +141,7 @@
                     Hud.goal = 100;
                     for(var i = 0; i < 100; i++) {
                         var newInvader = {
-                            life: 2,
+                            life: 1,
                             x: 200 + (i%10) * 25,
                             y: 0 - 25 * Math.floor(i / 10),
                             dead: false,
@@ -235,19 +235,23 @@
 
     var Background = {
         init: function() {
-            this.ready = false;
+            /*this.ready = false;
 
             this.img = new Image();
             this.img.src = 'background.jpg';
             this.img.onload = function() {
                 Background.ready = true;
-            };
+            };*/
         },
 
         draw: function() {
-            if (this.ready) {
+            /*if (this.ready) {
                 ctx.drawImage(this.img, 0, 0);
-            }
+            }*/
+            //ctx.fillStyle = '#8B0000';//red planet
+            //ctx.fillStyle = '#191970';//ocean planet
+            ctx.fillStyle = '#FFDEAD';//desert planet
+            ctx.fillRect(0, 0, Game.width, Game.height);
         }
     };
 
